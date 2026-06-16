@@ -1,1 +1,153 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Tube Model Predictive Control for Robust Autonomous Navigation of Planetary Rovers via Safe Reinforcement Learning.">
+  <meta name="keywords" content="planetary rover, safe reinforcement learning, tube MPC, control barrier function, autonomous navigation">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tube Model Predictive Control for Robust Autonomous Navigation of Planetary Rovers via Safe Reinforcement Learning</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+</head>
+<body>
+  <section class="hero paper-hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="paper-hero-card">
+          <!-- <p class="eyebrow">IEEE Journal Manuscript</p> -->
+          <h1 class="title is-1 publication-title">Tube Model Predictive Control for Robust Autonomous Navigation of Planetary Rovers via Safe Reinforcement Learning</h1>
+
+          <div class="publication-authors">
+            <span class="author-block">Dongxu Su,</span>
+            <span class="author-block">Ruyi Zhou,</span>
+            <span class="author-block">Liang Ding,</span>
+            <span class="author-block">Sinuo Cheng,</span>
+            <span class="author-block">Xinyu Li,</span>
+            <span class="author-block">Miao Zheng,</span>
+            <span class="author-block">Haibo Gao,</span>
+            <span class="author-block">Zongquan Deng</span>
+          </div>
+
+          <div class="publication-affiliations">
+            <span>State Key Laboratory of Robotics and System, Harbin Institute of Technology, Harbin 150080, Heilongjiang, China</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <section class="section" id="abstract">
+      <div class="container is-max-desktop">
+        <div class="section-card">
+          <div class="section-heading">
+            <p class="section-kicker">Abstract</p>
+            <h2 class="title is-3">Abstract</h2>
+          </div>
+          <div class="content has-text-justified paper-copy">
+            <p>
+              Rovers operating in uncertain planetary surface environments face significant challenges, including complex terrain-induced disturbances and randomly distributed obstacles, which impose higher demands on the robustness, safety, and real-time performance of robotic navigation and control systems.
+            </p>
+            <p>
+              To address these demands, this paper proposes a safe reinforcement learning-based robust tube model predictive control (MPC) method, termed SRL-RMPC, for autonomous driving under disturbances.
+            </p>
+            <p>
+              First, considering the characteristics of planetary terrains, the optimal control problem (OCP) of nominal MPC is reformulated as a reinforcement learning optimization task. A data-driven nominal state inference model is constructed based on a conditional variational autoencoder (CVAE) to learn high-quality nominal state distributions and is jointly trained with the RL policy network to reduce the computational burden of online optimization.
+            </p>
+            <p>
+              After obtaining the nominal trajectory, an auxiliary control law integrating control barrier functions (CBFs) and sliding mode is designed to ensure safety and robustness. The control input computation is reformulated into a constrained optimization framework, which uniformly handles collision avoidance safety and convergence feasibility, thereby keeping the actual trajectory within the robust control invariant (RCI) tube and enabling effective compensation for uncertain disturbances.
+            </p>
+            <p>
+              Finally, the proposed method is validated on both the IsaacLab high-fidelity simulation platform and real-world rover experiments. Compared with the baselines, the method achieves superior performance across multiple evaluation metrics, demonstrating its capability to ensure safe, robust, and efficient autonomous navigation.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="video">
+      <div class="container is-max-desktop">
+        <div class="section-card">
+          <div class="section-heading">
+            <p class="section-kicker">Video</p>
+            <h2 class="title is-3">Video</h2>
+          </div>
+          <div class="video-shell">
+            <video controls playsinline preload="metadata" class="paper-video">
+              <source src="./presentation.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="system-description">
+      <div class="container is-max-desktop">
+        <div class="section-card">
+          <div class="section-heading">
+            <p class="section-kicker">System Description</p>
+            <h2 class="title is-3">System Description</h2>
+          </div>
+
+          <div class="content has-text-justified paper-copy">
+            <p>
+              The overall framework integrates robust control, formal safety constraints, and data-driven learning into a unified architecture for rover navigation in complex planetary environments.
+            </p>
+            <p>
+              The main contributions of this paper are summarized as follows:
+            </p>
+          </div>
+
+          <div class="content has-text-justified paper-copy contribution-copy">
+            <ol>
+              <li>A data-driven robust control framework adaptable to disturbed environments is proposed. The online optimization problem of nominal MPC is transformed into an RL problem, and a CVAE-based nominal state inference network is designed to infer nominal initial state distributions with superior performance. By jointly optimizing the generative model and the RL policy, real-time policy solving is achieved while maintaining navigation performance.</li>
+              <li>A nonlinear TMPC (TNMPC) safety shielding mechanism based on certificate functions and sliding-mode control is designed. Its control law solution is reformulated as an optimization problem, and the CBF-based safety constraints are uniformly embedded into the framework. Consequently, a joint optimization formulation integrating sliding mode control (SMC) and CBF is constructed, enabling the solution to satisfy both lyapunov-type reaching conditions and formal safety constraints, thereby improving robustness against disturbances while ensuring obstacle avoidance safety.</li>
+              <li>Experiments are conducted in both high-fidelity simulation environments and real-world vehicle platforms to verify the effectiveness of the proposed algorithm in improving the safety, efficiency, and robustness of rover navigation.</li>
+            </ol>
+          </div>
+
+          <div class="framework-shell">
+            <img src="./基于强化学习的星球车导航策略学习%20(1)/framework.jpg" alt="Overview of the proposed SRL-RMPC framework for robust and safe rover navigation." class="framework-image">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="results">
+      <div class="container is-max-desktop">
+        <div class="section-card">
+          <div class="section-heading">
+            <p class="section-kicker">Results</p>
+            <h2 class="title is-3">Results</h2>
+          </div>
+
+          <div class="columns is-variable is-5 paper-cards">
+            <div class="column">
+              <article class="paper-card">
+                <h3>Training details</h3>
+                <p>Training is carried out in the high-fidelity IsaacLab/RLROVERLAB environment with hierarchical terrain modeling, OpenAI Gym integration, parallel simulation, and domain randomization over terrain undulations, obstacle distributions, and sensor noise.</p>
+              </article>
+            </div>
+            <div class="column">
+              <article class="paper-card">
+                <h3>Simulation performance</h3>
+                <p>Across 512 random test scenarios, the proposed method achieves a navigation success rate of 98.68%, a collision rate of 0.57%, and better trajectory-level metrics than the baselines, including higher episode reward, shorter completion time, and larger obstacle clearance.</p>
+              </article>
+            </div>
+            <div class="column">
+              <article class="paper-card">
+                <h3>Real-world validation</h3>
+                <p>On the Hunter Mini platform, the rover reaches the goal stably while avoiding obstacles, and the reported experiments show that the proposed method maintains higher safety and smoother control action profiles than the baseline in real deployment.</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
